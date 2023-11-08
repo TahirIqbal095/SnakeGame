@@ -64,24 +64,27 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener{
     }
 
     public void draw(Graphics g) {
-        for(int i = 0; i < boardWidth / tileSize; i++) {
-            g.drawLine(i * tileSize, 0, i * tileSize, boardHeight);
-            g.drawLine(0, i * tileSize, boardWidth, i * tileSize);
-
-        }
+//        for(int i = 0; i < boardWidth / tileSize; i++) {
+//            g.drawLine(i * tileSize, 0, i * tileSize, boardHeight);
+//            g.drawLine(0, i * tileSize, boardWidth, i * tileSize);
+//
+//        }
 
         //food
         g.setColor(Color.red);
-        g.fillRect(food.x * tileSize, food.y * tileSize, tileSize, tileSize);
+        //g.fillRect(food.x * tileSize, food.y * tileSize, tileSize, tileSize);
+        g.fill3DRect(food.x * tileSize, food.y * tileSize, tileSize, tileSize, true);
 
         //snake head
         g.setColor(Color.green);
-        g.fillRect(snakeHead.x * tileSize, snakeHead.y * tileSize, tileSize, tileSize);
+        //g.fillRect(snakeHead.x * tileSize, snakeHead.y * tileSize, tileSize, tileSize);
+        g.fill3DRect(snakeHead.x * tileSize, snakeHead.y * tileSize, tileSize, tileSize, true);
 
         // snake body
         for(int i = 0; i < snakeBody.size(); i++) {
             Tile snakePart = snakeBody.get(i);
-            g.fillRect(snakePart.x * tileSize, snakePart.y * tileSize, tileSize, tileSize);
+            //g.fillRect(snakePart.x * tileSize, snakePart.y * tileSize, tileSize, tileSize);
+            g.fill3DRect(snakePart.x * tileSize, snakePart.y * tileSize, tileSize, tileSize, true);
         }
 
         // score
